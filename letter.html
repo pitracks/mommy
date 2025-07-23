@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Letter</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700|Dancing+Script:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            background: #f8b4bc;
+            color: #222;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .main-flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            min-height: 100vh;
+            gap: 30px;
+        }
+        .side-video {
+            width: 220px;
+            height: 350px;
+            border-radius: 12px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+            background: #fff;
+            object-fit: cover;
+        }
+        .letter-container {
+            background: #EEE8E2;
+            border-radius: 10px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+            padding: 40px;
+            max-width: 600px;
+            width: 90%;
+            position: relative;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #333;
+            cursor: pointer;
+            padding: 5px;
+        }
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .letter-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            color: #222;
+        }
+        .letter-header p {
+            font-size: 20px;
+            color: #666;
+            margin: 0;
+        }
+        .letter-content {
+            font-size: 24px;
+            line-height: 1.6;
+            text-align: center;
+        }
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+        .signature {
+            margin-top: 40px;
+            text-align: center;
+            font-weight: 600;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #eee;
+            margin: 30px 0;
+        }
+        @media (max-width: 1000px) {
+            .main-flex {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .side-video {
+                width: 90vw;
+                max-width: 350px;
+                height: 200px;
+            }
+        }
+        .collage-container {
+            position: absolute;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .collage-photo {
+            position: absolute;
+            width: 180px;
+            height: 130px;
+            object-fit: cover;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+            border: 6px solid #fff;
+            border-radius: 12px;
+            transition: transform 0.2s;
+        }
+        .main-flex, .letter-container, .side-video {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <audio id="bg-music" src="Five for Fighting - 100 Years_ Music Video.mp3" autoplay loop hidden></audio>
+    <div class="collage-container" id="collage"></div>
+    <div class="main-flex">
+        <div class="letter-container">
+            <button class="back-button" onclick="window.location.href='index.html'">×</button>
+            <div class="letter-header">
+                <h1>HAPPY BIRTHDAY, MOMMY!</h1>
+            </div>
+            <hr>
+            <div class="letter-content">
+                <p style="font-weight: 600;">Mommy</p>
+                <p>I just want to take a moment to say how much I love you and how thankful I am for everything you’ve done for me. As I turn 21 this August, I’ve been thinking a lot about everything you sacrificed just to give me a better life — and honestly, it leaves me speechless.</p>
+                <p>You became a mom at such a young age, and instead of living life freely like most people in their early 20s, you made the brave decision to go abroad and work in Italy. You left everything behind — your home, your comfort, and even me — just to make sure I had what I needed. I can only imagine how hard that must have been, and yet you did it all out of love.</p>
+                <p>You’re the strongest and most selfless person I know. Even though you were far away, you’ve always been my biggest source of strength and love. You’ve supported me in ways that words will never be enough to explain.</p>
+                <p>On your birthday, I just want to celebrate you. You deserve all the love, all the happiness, and all the rest that this world can give. I hope you take this day to smile, relax, and feel proud of the amazing woman and mother you are.</p>
+                <p>One day, I promise, I’ll take care of you the way you’ve always taken care of me.
+                    Happy Birthday, Mommy. I love you.💕</p>
+                <div class="signature">
+                    With all my love,<br>
+                    Pat
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+            const fallingImageFiles = [
+                'q1.jpg',
+                'q2.jpg',
+                'q3.jpg',
+                'q4.jpg',
+                'q5.jpg',
+                'q6.jpg',
+                'q7.jpg',
+                'q8.jpg',
+                'q9.jpg',
+                'q10.jpg',
+                'q11.jpg',
+                'q12.jpg',
+                'q13.jpg',
+                'q14.jpg',
+                'q15.jpg',
+                'q16.jpg',
+                'q17.jpg',
+                'q18.jpg',
+                'q19.jpg',
+                'q20.jpg',
+                'q21.jpg',
+                'q22.jpg',
+                'q23.jpg',
+                'q24.jpg',
+                'q25.jpg',
+                'q26.jpg',
+                'q27.jpg',
+                'q28.jpg',
+                'q29.jpg',
+                'q30.jpg', 
+                'q31.jpg',
+                'q32.jpg',
+                'q33.jpg',
+                'q34.jpg',
+                'q35.jpg',
+                'q36.jpg',
+                'q37.jpg',
+                'q38.jpg',
+                'q39.jpg',
+                'q40.jpg',
+                'q41.jpg',
+                'q42.jpg',
+                'q43.jpg',
+                'q44.jpg',
+                'q45.jpg',
+                'q46.jpg',
+                'q47.jpg',
+                'q48.jpg',
+                'q49.jpg',
+                'q50.jpg',
+                'q51.jpg',
+                'q52.jpg',
+                'q53.jpg',
+                'q54.jpg',
+                'q55.jpg',
+                'q56.jpg',
+                'q57.jpg',
+                'q58.jpg',
+                'q59.jpg',
+            ];
+
+    function randomBetween(a, b) {
+      return Math.random() * (b - a) + a;
+    }
+
+    const collage = document.getElementById('collage');
+    const centerWidth = 600; // width of your letter container in px
+    const sideMargin = 60;   // margin from the edge in px
+
+    images.forEach((img, i) => {
+      const el = document.createElement('img');
+      el.src = img;
+      el.className = 'collage-photo';
+
+      // Randomly choose left or right side
+      const isLeft = Math.random() < 0.5;
+      // Calculate left position: left side or right side, avoiding the center
+      let left;
+      if (isLeft) {
+        left = Math.random() * (window.innerWidth / 2 - centerWidth / 2 - sideMargin);
+      } else {
+        left = window.innerWidth / 2 + centerWidth / 2 + Math.random() * (window.innerWidth / 2 - centerWidth / 2 - sideMargin);
+      }
+      // Spread vertically across the viewport
+      const top = Math.random() * (window.innerHeight - 150);
+
+      el.style.left = `${left}px`;
+      el.style.top = `${top}px`;
+      el.style.transform = `rotate(${randomBetween(-20, 20)}deg)`;
+      collage.appendChild(el);
+    });
+    </script>
+</body>
+</html> 

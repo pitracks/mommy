@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword</title>
+    <meta name="description" content="Birthday Crossword Puzzle - Keepsake">
+    <link rel="icon" href="mini.jpg" sizes="32x32">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,700&display=swap">
+    <style>
+        body {font-family: 'Open Sans', Arial, Helvetica, sans-serif; margin: 0; background: #EEE8E2; color: #2B343B;}
+        header {background: #fff; box-shadow: 0 1px 0 rgba(0,0,0,.1); padding: 20px 0;}
+        .container {width: 90%; max-width: 1080px; margin: auto;}
+        .logo_container img {height: 43px;}
+        nav ul {list-style: none; padding: 0; margin: 0; display: flex; gap: 30px;}
+        nav ul li a {text-decoration: none; color: #2ea3f2; font-weight: 600;}
+        nav ul li a[aria-current="page"] {color: #e86474;}
+        h1 {font-family: 'Montserrat', sans-serif; font-size: 38px; font-weight: 900; margin: 0 0 16px 0; text-align: center;}
+        h2 {font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 600; margin: 0 0 20px 0; text-align: center;}
+        .main-section {display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 60px 0;}
+        .crossword-iframe {background: #fff; border: 3px solid #000; border-radius: 8px; display: block; margin: 0 auto 24px auto; box-shadow: 0 2px 8px rgba(0,0,0,0.04);}
+        .center {text-align: center;}
+        .button {background: #e86474; border: none; border-radius: 24px; color: white; padding: 10px 30px; font-size: 18px; cursor: pointer; font-weight: 700; margin: 16px 0; transition: background 0.2s;}
+        .button:hover {background: #a23a61;}
+        @media (max-width: 700px) {
+            .main-section {padding: 30px 0;}
+            .crossword-iframe {width: 98vw !important; height: 320px !important;}
+        }
+        /* Falling Pictures CSS */
+        .falling-picture {
+            position: fixed;
+            top: -20vh;
+            animation: fall linear infinite;
+            user-select: none;
+            pointer-events: none;
+            width: 100px;
+            height: auto;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            background-color: white;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .falling-flower {
+            position: fixed;
+            top: -10vh;
+            font-size: 2.2rem;
+            animation: fall-flower linear infinite;
+            user-select: none;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        @keyframes fall-flower {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(120vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <audio autoplay>
+        <source src="mark.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <header>
+        <div class="container" style="display: flex; align-items: center; justify-content: space-between;">
+            <div class="logo_container">
+                <a href="index.html"><img src="us.jpg" alt="Logo"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Go Back</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="main-section container">
+            <h1>solve this puzzle! pag tama lahat may reward ka sakin hehehehehe</h1>
+            <iframe width="500" height="500" style="border:3px solid black; margin:auto; display:block" frameborder="0" src="https://crosswordlabs.com/embed/patizzi"></iframe>
+            <div class="center">
+                <p>if you're <strong>done playing</strong> the game and get all the answers correct, take a screenshot and send mo sakin!!!</p>
+            </div>
+        </section>
+    </main>
+    <script>
+        // Array of image filenames for falling pictures
+        const fallingImageFiles = [
+            'm1.jpg', 'm2.jpg', 'm3.jpg', 'm4.jpg', 'm5.jpg',
+            'm6.jpg', 'm7.jpg', 'm8.jpg', 'm9.jpg', 'm10.jpg',
+            'm11.jpg', 'm12.jpg', 'm13.jpg', 'm14.jpg', 'm15.jpg',
+            'm16.jpg', 'm17.jpg', 'm18.jpg', 'm19.jpg', 'm20.jpg'
+        ];
+
+        function createFallingPicture() {
+            const picture = document.createElement('img');
+            picture.classList.add('falling-picture');
+            // Randomly select an image
+            const randomImageSrc = fallingImageFiles[Math.floor(Math.random() * fallingImageFiles.length)];
+            picture.src = randomImageSrc;
+            picture.style.left = Math.random() * 90 + 'vw';
+            picture.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            const randomSize = Math.random() * 50 + 50;
+            picture.style.width = randomSize + 'px';
+            document.body.appendChild(picture);
+            setTimeout(() => {
+                picture.remove();
+            }, 7000);
+        }
+        setInterval(createFallingPicture, 800);
+
+        // Falling Flowers JavaScript (using images)
+        const flowerImages = ['lily1.png', 'lily2.webp'];
+        function createFallingFlower() {
+            const flower = document.createElement('img');
+            flower.classList.add('falling-flower');
+            // Randomly select a flower image
+            flower.src = flowerImages[Math.floor(Math.random() * flowerImages.length)];
+            flower.style.left = Math.random() * 100 + 'vw';
+            flower.style.animationDuration = (Math.random() * 2 + 3) + 's';
+            const randomSize = Math.random() * 40 + 40; // 40px to 80px
+            flower.style.width = randomSize + 'px';
+            flower.style.height = 'auto';
+            document.body.appendChild(flower);
+            setTimeout(() => {
+                flower.remove();
+            }, 5000);
+        }
+        setInterval(createFallingFlower, 400);
+    </script>
+</body>
+</html>
